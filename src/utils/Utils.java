@@ -9,5 +9,11 @@ public class Utils {
 		}
 		System.out.println("-------");
 	}
+	
+	public static void swap(Comparable[] array, int i, int j) {
+		Comparable temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
 
 }
