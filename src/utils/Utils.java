@@ -1,6 +1,6 @@
 package utils;
 
-public class Utils implements {
+public class Utils {
 	
 	public static void printArray(Comparable[] array) {
 		for(Comparable e: array) {
@@ -32,6 +32,19 @@ public class Utils implements {
 		shuffle(a);
 		
 		printArray(a);
+	}
+	
+	/*
+	 * start < end
+	 */
+	public static void shiftElements(Comparable[] array, int index_to_insert, int index_value_to_insert, int value_to_insert) {
+		Comparable to_shift = array[index_to_insert];
+		for (int i = index_to_insert; i < index_value_to_insert; i++) {
+			Comparable temp = array[i + 1];
+			array[i + 1] = to_shift;
+			to_shift = temp;
+		}
+		array[index_to_insert] = value_to_insert;
 	}
 
 }
