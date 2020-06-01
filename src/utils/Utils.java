@@ -46,5 +46,18 @@ public class Utils {
 		}
 		array[index_to_insert] = value_to_insert;
 	}
+	
+	public static int minimumPos(Comparable[] array) {
+		Comparable min = array[0];
+		int min_pos = 0;
+
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] < min) {
+				min = array[i];
+				min_pos = i;
+			}
+		}
+		return min_pos;
+	}
 
 }
