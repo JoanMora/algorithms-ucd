@@ -15,5 +15,14 @@ class TestAdvSort {
 		
 		assertTrue(Utils.isSorted(array));
 	}
+	
+	@Test
+	void testQuickSort() {
+		Integer[] array = {99,1,0,5,5,6,98,54,2,7,104};
+		
+		AdvSort.quickSort(array);
+		
+		assertTrue(Utils.isSorted(array));
+	}
 
 }

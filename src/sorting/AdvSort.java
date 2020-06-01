@@ -1,5 +1,6 @@
 package sorting;
-import java.util.*; 
+import java.util.*;
+import utils.Utils;
 
 /**
  * @author joan
@@ -9,6 +10,10 @@ public class AdvSort {
 	
 	public static void mergeSort(Integer[] array) {
 		mergeSort(array,0,array.length-1);
+	}
+	
+	public static void quickSort(Integer[] array) {
+		quickSort(array,0,array.length-1);
 	}
 	
 	private static void mergeSort(Integer[] array, int start, int end) {
@@ -92,13 +97,91 @@ public class AdvSort {
 		}
 		
 	}
+	
+	/*
+	
+	
+	private static void quickSort(Integer[] array, int start, int end) {
+		if(start < end) {
+			int pivot = partition(array,start,end);
+			
+			// Place pivot at position high - 1
+            Utils.swap( array, start, end - 1 );
+			
+			// Begin partitioning
+            int i, j;
+            for( i = start, j = end - 1; ; ) {
+                while( array[ ++i ] < array[pivot]);
+                System.out.println(j);
+                while( array[pivot] < array[j--]);
+                if( i >= j )
+                    break;
+                Utils.swap(array, i, j );
+            }
+             
+            // Restore pivot
+            Utils.swap( array, i, end - 1 );
+			
+			quickSort(array,start,pivot - 1);
+			quickSort(array,pivot + 1, end);
+		}
+	}
+	
+	private static int partition(Integer[] array, int start, int end) {
+		Integer pivot = array[end];
+		//int pivot = pivotMedian(array, start, end);
+		
+		int i = start - 1;
+		for(int j=start; j<=end-1; j++) {
+			if(array[j] < pivot) {
+				i++;
+				Utils.swap(array, i, j);
+			}
+		}
+		
+		Utils.swap(array, i+1, end);
+		
+		return i + 1;
+	}
+	
+	*/
+	
+	private static void quickSort(Integer[] array, int start, int end) {
+		if(start < end ) {
+			int p = end; // our pivot is the last element
+			partitionOperation(array, start, end, p);
+			
+			// pivot is in its right place
+			quickSort(array, start, p-1);
+			quickSort(array, p+1, end);
+		}
+	}
+	
+	private static void partitionOperation(Integer[] array, int start, int end, int p) {		
+
+		int i = start - 1;
+		int j = start; // goes from start to end-1
+		
+		while(j<end) {
+			if(array[j] < array[p]) {
+				i++;
+				Utils.swap(array, i, j);
+			}
+			j++;
+		}
+		
+		// pivot should be in i+1 position
+		Utils.shiftElements(array, i+1, p);
+	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Integer[] array = {99,1,0,5,5,6,98,54,2,7,104};
+		AdvSort.quickSort(array);
+		Utils.printArray(array);
 	}
 
 }
