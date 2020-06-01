@@ -37,7 +37,8 @@ public class Utils {
 	/*
 	 * start < end
 	 */
-	public static void shiftElements(Comparable[] array, int index_to_insert, int index_value_to_insert, int value_to_insert) {
+	public static void shiftElements(Comparable[] array, int index_to_insert, int index_value_to_insert) {
+		Comparable value_to_insert = array[index_value_to_insert];
 		Comparable to_shift = array[index_to_insert];
 		for (int i = index_to_insert; i < index_value_to_insert; i++) {
 			Comparable temp = array[i + 1];
@@ -52,7 +53,7 @@ public class Utils {
 		int min_pos = 0;
 
 		for (int i = 0; i < array.length; i++) {
-			if (array[i] < min) {
+			if (array[i].compareTo(min) < 0) {
 				min = array[i];
 				min_pos = i;
 			}

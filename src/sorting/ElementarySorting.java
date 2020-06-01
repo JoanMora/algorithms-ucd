@@ -1,25 +1,26 @@
-package Sorting;
+package sorting;
+
 import java.util.Arrays;
-import utils.Utils
+import utils.Utils;
 
 /**
  * @author joan
  *
  */
 public class ElementarySorting {
-	
+
 	public static void insertionSort(Integer[] array) {
 
 		for (int pivot = 0; pivot < array.length; pivot++) {
 			for (int j = 0; j <= pivot; j++) {
 				if (array[pivot] < array[j]) {
 					// insert in position j and shift the rest of the array
-					Utils.shiftElements(array, j, pivot, array[pivot]);
+					Utils.shiftElements(array, j, pivot);
 				}
 			}
 		}
 	}
-	
+
 	public static void selectionSort(Integer[] array) {
 
 		for (int i = 0; i < array.length; i++) {
@@ -29,7 +30,6 @@ public class ElementarySorting {
 		}
 
 	}
-	
 
 	/**
 	 * @param args
@@ -38,5 +38,6 @@ public class ElementarySorting {
 		// TODO Auto-generated method stub
 
 	}
+ 
 
 }
