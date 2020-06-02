@@ -50,8 +50,26 @@ public class Trie {
     }
 
     // Returns true if key presents in trie, else false
-    static boolean search(String key) {
-
+    public static boolean search(String key) {
+    	int length = key.length();
+    	
+    	TrieNode crawler = root;
+    	
+    	for(int level=0; level<length; level++) {
+    		int index = key.charAt(level) - 'a';
+    		
+    		if(crawler.children[index] == null) {
+    			return false;
+    		}
+    		else {
+    			crawler = crawler.children[index];
+    		}
+    		
+    	}
+    	
+    	// We went through all the word to search
+    	// check if we are at the end of some word
+    	return crawler != null && crawler.isEndOfWord;
     }
 
     // Driver
