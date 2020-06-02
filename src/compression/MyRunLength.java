@@ -21,7 +21,6 @@ public class MyRunLength {
 		
 		char c = input.charAt(0);
 		
-		// assure an end of the input
 		input += " ";
 		
 		for(int i=0; i<input.length(); i++) {
