@@ -11,7 +11,11 @@ public class ElementarySorting {
 
 	public static void insertionSort(Integer[] array) {
 
-		for (int pivot = 0; pivot < array.length; pivot++) {
+		insertionSort(array, 0, array.length-1);
+	}
+	
+	protected static void insertionSort(Integer[] array, int start, int end) {
+		for (int pivot = start; pivot <= end; pivot++) {
 			for (int j = 0; j <= pivot; j++) {
 				if (array[pivot] < array[j]) {
 					// insert in position j and shift the rest of the array
