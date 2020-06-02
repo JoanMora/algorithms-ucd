@@ -23,16 +23,17 @@ public class Trie {
         }
     }
 
-    static TrieNode root;
+    TrieNode root = new TrieNode();
+    
 
     // If not key present, inserts into trie
     // If the key is prefix of Trie node, 
     // marks leaf node
-    public static void insert(String key) {
+    public void insert(String key) {
     	int length = key.length();
     	int index;
     	
-    	TrieNode crawler = root; // start the crawler at the root
+    	TrieNode crawler = this.root; // start the crawler at the root
     	
     	for(int level=0; level < length; level++) {
     		// we use indexes for letters and values to reference other TrieNodes
@@ -48,12 +49,20 @@ public class Trie {
     	crawler.isEndOfWord = true;
     	
     }
+    
+    // Insert a set of keys in a Trie
+    public void insert(String[] keys) {
+    	for(String key : keys) {
+    		insert(key);
+    	}
+    }
 
     // Returns true if key presents in trie, else false
-    public static boolean search(String key) {
+    public boolean search(String key) {
     	int length = key.length();
     	
     	TrieNode crawler = root;
+    	
     	
     	for(int level=0; level<length; level++) {
     		int index = key.charAt(level) - 'a';
@@ -71,33 +80,5 @@ public class Trie {
     	// check if we are at the end of some word
     	return crawler != null && crawler.isEndOfWord;
     }
-
-    // Driver
-    public static void main(String args[]) {
-
-        // Input keys (use only 'a' through 'z' and lower case)
-        String keys[] = { "bank", "book", "bar", "bring", "film", "filter", "simple", "silt", "silver" };
-
-        String output[] = { "Not present in trie", "Present in trie" };
-
-        root = new TrieNode();
-
-        // Construct trie
-        int i;
-        for (i = 0; i < keys.length; i++) {
-            insert(keys[i]);
-        }
-
-        // Search for different keys
-
-    }
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
