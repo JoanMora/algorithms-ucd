@@ -45,11 +45,9 @@ public class AdvSort {
 	
 	private static void merge(Integer[] array, int start, int end) {
 		
-		int numberOfElements = end-start+1;
-		
 		// Avoid overhead when merging small arrays improvement 
-		if((numberOfElements) <= 10) {
-			mergeInsertion(array,start,end);
+		if(end <= start+CUTOFF) {
+			ElementarySorting.insertionSort(array,start,end);
 		}
 		else {
 			int mid = (start+end) / 2;
@@ -87,21 +85,6 @@ public class AdvSort {
 			}
 			
 		}
-	}
-	
-	/* Perform insertion for sub arrays*/
-	private static void mergeInsertion(Integer[] array, int start, int end) {
-		
-		int numberOfElements = end-start+1;
-		
-		Integer[] arrayCopy = Arrays.copyOfRange(array,start,end+1);
-		ElementarySorting.insertionSort(arrayCopy);
-		
-		
-		for(int i=0; i<numberOfElements; i++) {
-			array[start+i] = arrayCopy[i];
-		}
-		
 	}
 	
 	private static void quickSort(Integer[] array, int start, int end) {
