@@ -15,6 +15,7 @@ import java.util.StringTokenizer;
  */
 public class MyRunLength {
 	
+<<<<<<< HEAD
 	public static void compress(String input) {
 		String res = "";
 		int j = 0;
@@ -55,6 +56,49 @@ public class MyRunLength {
 
 			// System.out.println(tokens);
 			compress(tokens.toArray(new String[0])[0]);
+=======
+	public static void rle(String input) {
+		String res = "";
+		int j = 0;
+		
+		char c = input.charAt(0);
+		
+		// assure an end of the input
+		input += " ";
+		
+		for(int i=0; i<input.length(); i++) {
+			char next_c = input.charAt(i);
+			if(next_c == c) {
+				j++;
+			}
+			else {
+				res += (j==1) ? "" + c : c + "" + j;
+				j  = 1;
+				c = next_c;
+			}
+		}
+		System.out.println(res);
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		List<String> tokens = new ArrayList<>();
+		BufferedReader br = null;
+
+		try {
+			br = new BufferedReader(new InputStreamReader(System.in));
+			StringTokenizer st = new StringTokenizer(br.readLine());
+
+			while (st != null && st.hasMoreElements()) {
+				tokens.add(st.nextToken());
+			}
+
+			// System.out.println(tokens);
+			rle(tokens.toArray(new String[0])[0]);
+>>>>>>> branch 'lab_9_compression' of https://github.com/CompAlgorithms/algorithm-portfolio-20290-JoanMora.git
 		}
 		catch (IOException e) {
 			System.out.println(e);
