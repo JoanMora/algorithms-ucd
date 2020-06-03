@@ -1,3 +1,5 @@
+package compression;
+
 /******************************************************************************
  *  Compilation:  javac BinaryDump.java
  *  Execution:    java BinaryDump n < file

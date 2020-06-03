@@ -1,3 +1,5 @@
+package compression;
+
 /******************************************************************************
  *  Compilation:  javac RunLength.java
  *  Execution:    java RunLength - < input.txt   (compress)

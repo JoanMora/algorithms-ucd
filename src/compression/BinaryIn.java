@@ -1,3 +1,5 @@
+package compression;
+
 /******************************************************************************
  *  Compilation:  javac BinaryIn.java
  *  Execution:    java BinaryIn input output

@@ -1,3 +1,5 @@
+package compression;
+
 /******************************************************************************
  *  Compilation:  javac HexDump.java
  *  Execution:    java HexDump < file

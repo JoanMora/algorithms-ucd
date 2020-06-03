@@ -1,3 +1,5 @@
+package compression;
+
 /******************************************************************************
  *  Compilation:  javac BinaryStdOut.java
  *  Execution:    java BinaryStdOut
