@@ -18,7 +18,6 @@ package complexity;
  ******************************************************************************/
 
 import java.util.Arrays;
-import java.lang.*;
 
 
 public class ThreeSumB {

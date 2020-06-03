@@ -1,15 +1,5 @@
 package complexity;
 
-/******************************************************************************
- *  Compilation:  javac ThreeSumA.java
- *  Execution:    java ThreeSum input.txt
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- ******************************************************************************/
-import java.util.Arrays;
-import java.lang.*;
-
 public class ThreeSumA {
 
     // Do not instantiate.
