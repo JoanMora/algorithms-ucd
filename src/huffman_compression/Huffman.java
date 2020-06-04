@@ -1,7 +1,7 @@
 /**
  * 
  */
-package huffman_compression_assignment.task1_huffman_tree_by_hand;
+package huffman_compression;
 
 /******************************************************************************
  *  Compilation:  javac Huffman.java
