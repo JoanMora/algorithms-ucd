@@ -11,6 +11,7 @@ package huffman_compression;
  * Add instructions and documentation related to your Huffman algorithm here...
  *
  ******************************************************************************/
+import java.util.*; 
 
 
 /**
@@ -24,6 +25,12 @@ public class Huffman {
     // alphabet size of extended ASCII
     private static final int R = 256;
 
+    // Frequency Table
+    private static Hashtable<Character,Integer> frequencyTable = new Hashtable<Character, Integer>();
+    
+    // Input Storage
+    private static ArrayList<Character> inputList = new ArrayList<Character>(); 
+    
     // Do not instantiate.
     private Huffman() { }
 
@@ -79,6 +86,26 @@ public class Huffman {
         // use Huffman code to encode input
 
 
+    }
+    
+    public static void readInput(String file_url) {
+    	BinaryIn in = new BinaryIn(file_url);
+    	
+    	while(!in.isEmpty()) {
+    		Character c = in.readChar();
+    		inputList.add(c);
+    	}
+    }
+    
+    public static void tabulateFrequenctTable() {
+    	for(Character c: inputList) {
+    		Integer f = 1;
+    		if(frequencyTable.containsKey(c)) {
+    			f = frequencyTable.get(c) + 1;
+    			
+    		}
+    		frequencyTable.put(c, f);
+    	}
     }
 
 
