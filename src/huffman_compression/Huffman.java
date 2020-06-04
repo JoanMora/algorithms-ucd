@@ -66,13 +66,15 @@ public class Huffman {
      */
     public static void compress() {
         // read the input
-
+    	readInput("whatever");
 
         // tabulate frequency counts
-
+    	tabulateFrequenctTable();
 
         // build Huffman trie
-
+    	Collection<Integer> values = frequencyTable.values();
+    	Integer[] freq = values.toArray( new Integer[ values.size() ]);
+    	buildTrie(freq);
 
         // build code table
 
@@ -124,7 +126,7 @@ public class Huffman {
     }
 
     // build the Huffman trie given frequencies
-    private static Node buildTrie(int[] freq) {
+    private static Node buildTrie(Integer[] freq) {
 
         // initialze priority queue with singleton trees
         MinPQ<Node> pq = new MinPQ<Node>();
