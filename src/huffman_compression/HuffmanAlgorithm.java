@@ -73,6 +73,16 @@ public class HuffmanAlgorithm {
     }
     
     
+    // Make a lookup table from symbols and their encodings
+    private static void buildCodeWordTable(String[] table, Node node, String s) {
+        if (!node.isLeaf()) {
+            buildCodeWordTable(table, node.left, s + '0');
+            buildCodeWordTable(table, node.right, s + '1');
+        } else {
+            table[node.ch] = s;
+        }
+    }
+    
     
     
  
