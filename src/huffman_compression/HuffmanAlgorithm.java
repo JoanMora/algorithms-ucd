@@ -46,6 +46,39 @@ public class HuffmanAlgorithm {
     }
     
     
+    public static void compress() {
+        // Read the input (1)
+        char[] textInput = binaryIn.readString().toCharArray();
+
+        // Tabulate frequency counts, build Huffman trie and code table
+        // Count character frequency (2)
+        int[] f = new int[ALPHABET_SIZE];
+        for (char ch : textInput) {
+            f[ch]++;
+        }
+        // Build the Huffman encoding tree (3)
+        Node root = buildTrie(f);
+        String[] table = new String[ALPHABET_SIZE];
+        
+        // Build the corresponding codeword table (4)
+        buildCodeWordTable(table, root, "");
+        
+        
+        // Write the trie (5)
+        writeTrie(root);
+        binaryOut.write(textInput.length); // Bytes in original message
+
+        // Apply Huffman coding (6)
+        for (char ch : textInput) {
+            for (char e : table[ch].toCharArray()) {
+                binaryOut.write(e == '1');
+            }
+        }
+        binaryOut.close();
+    }
+    
+    
+    
     // Build the Huffman trie, given the frequencies of every character in text
     private static Node buildTrie(int[] freq) {
 
