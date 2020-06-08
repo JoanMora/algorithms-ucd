@@ -179,6 +179,7 @@ public class HuffmanAlgorithm {
 
 	/**
 	 * @param args
+	 * Pass the full path for files.
 	 */
 	public static void main(String[] args) {
 		
