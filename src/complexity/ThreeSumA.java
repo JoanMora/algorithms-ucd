@@ -45,12 +45,12 @@ public class ThreeSumA {
         final long t1 = System.currentTimeMillis();
         int count = count(a);
         final long t2 = System.currentTimeMillis();
-        long elapsed = (t2 - t1) / 1000;
+        long elapsed = (t2 - t1);
         System.out.println("count =" + count);
         
-        System.out.println("Time taken = " + elapsed + " secs");
+        System.out.println("Time taken = " + elapsed + " Milliseconds");
               
     } 
-} 
+}
 
 
