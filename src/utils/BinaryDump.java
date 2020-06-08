@@ -1,4 +1,4 @@
-package compression;
+package utils;
 
 /******************************************************************************
  *  Compilation:  javac BinaryDump.java

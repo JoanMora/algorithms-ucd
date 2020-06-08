@@ -1,5 +1,7 @@
 package huffman_compression;
 
+import utils.*;
+
 /******************************************************************************
  *  Compilation:  javac RunLength.java
  *  Execution:    java RunLength - < input.txt   (compress)

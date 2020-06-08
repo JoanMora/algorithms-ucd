@@ -117,7 +117,7 @@ public class HuffmanAlgorithm {
         while (pq.size() > 1) {
             Node l = pq.delMin();
             Node r = pq.delMin();
-            pq.insert(new Node('\0', l.getFreq() + r.getFreq(), l, r));
+            pq.insert(new Node('\0', l.freq + r.freq, l, r));
         }
         return pq.delMin();
     }

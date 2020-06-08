@@ -1,7 +1,7 @@
 /**
  * 
  */
-package compression;
+package huffman_compression;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
