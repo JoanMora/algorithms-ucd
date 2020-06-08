@@ -15,6 +15,7 @@ import java.io.PrintStream;
  ******************************************************************************/
 import java.util.*;
 
+import utils.MinPQ;
 import utils.Utils; 
 
 
@@ -37,6 +38,8 @@ public class HuffmanCompression {
     
     // CodeWord Table <character,encoding>
     private static Hashtable<Character,String> codeWordTable = new Hashtable<Character, String>();
+    
+    private static BinaryOut outTrie;
     
     // Do not instantiate.
     private HuffmanCompression() { }
@@ -100,8 +103,10 @@ public class HuffmanCompression {
     	
         // print trie for decoder
     	// System.setOut(trieOut);
+    	outTrie = new BinaryOut("tryTrie");
     	writeTrie(rootHuffmanTrie);
-    	BinaryStdOut.flush();
+    	outTrie.close();
+    	// BinaryStdOut.flush();
     	// System.setOut(originalOut);
     	
         // print number of bytes in original uncompressed message
@@ -113,7 +118,7 @@ public class HuffmanCompression {
     	System.out.println(encode);
     	BinaryOut out = new BinaryOut("try");
     	out.write(encode);
-    	out.flush();
+    	out.close();
 
     }
     
@@ -211,12 +216,13 @@ public class HuffmanCompression {
 
     // write bitstring-encoded trie to standard output
     private static void writeTrie(Node x) {
+    	
         if (x.isLeaf()) {
-            BinaryStdOut.write(true);
-            BinaryStdOut.write(x.ch, 8);
+            outTrie.write(true);
+            outTrie.write(x.ch, 8);
             return;
         }
-        BinaryStdOut.write(false);
+        outTrie.write(false);
         writeTrie(x.left);
         writeTrie(x.right);
     }
@@ -284,7 +290,7 @@ public class HuffmanCompression {
      */
     public static void main(String[] args) throws FileNotFoundException {
     	
-    	String mode = "decompress"; //args[0];
+    	String mode = "compress"; //args[0];
     	String inputFile = "mockInHuffman"; //args[1];
     	String outputFile = "try"; // args[3];
     	
