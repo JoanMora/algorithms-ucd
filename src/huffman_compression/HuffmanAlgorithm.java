@@ -83,6 +83,18 @@ public class HuffmanAlgorithm {
         }
     }
     
+    private static void writeTrie(Node node) {
+        binaryOut.write(node.isLeaf());
+        
+        if (!node.isLeaf()) {
+            writeTrie(node.left);
+            writeTrie(node.right);
+        } else {
+            binaryOut.write(node.ch, 8);
+        }
+    }
+    
+    
     
     
  
