@@ -94,6 +94,16 @@ public class HuffmanAlgorithm {
         }
     }
     
+    // Read Huffman trie from standard input
+    private static Node readTrie() {
+        boolean isLeaf = binaryIn.readBoolean();
+        if (isLeaf) {
+            return new Node(binaryIn.readChar(), -1, null, null);
+        } else {
+            return new Node('\0', -1, readTrie(), readTrie());
+        }
+    }
+    
     
     
     
