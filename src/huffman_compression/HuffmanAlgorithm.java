@@ -77,6 +77,23 @@ public class HuffmanAlgorithm {
         binaryOut.close();
     }
     
+    public static void decompress() {
+    	
+    	// Read the input (1,2)
+        Node root = readTrie();
+        // Use this trie to decode the bitstream (3)
+        int nBytes = binaryIn.readInt(); // Bytes in original message
+        int i = 0;
+        while (i++ < nBytes) {
+            Node node = root;
+            while (!node.isLeaf()) {
+                node = binaryIn.readBoolean() ? node.right : node.left;
+            }
+            // Output the decompressed characters (4,5)
+            binaryOut.write(node.ch, 8);
+        }
+        binaryOut.close();
+    }
     
     
     // Build the Huffman trie, given the frequencies of every character in text
