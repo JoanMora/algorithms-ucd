@@ -1,4 +1,4 @@
-package huffman_compression;
+package utils;
 
 /******************************************************************************
  *  Compilation:  javac MinPQ.java
