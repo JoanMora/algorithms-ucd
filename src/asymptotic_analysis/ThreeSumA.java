@@ -1,4 +1,4 @@
-package complexity;
+package asymptotic_analysis;
 
 import utils.In;
 
