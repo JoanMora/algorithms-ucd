@@ -17,8 +17,8 @@ import utils.StdOut;
 public class HuffmanAlgorithm {
 	
 	private static final int ALPHABET_SIZE = 256; // extended ASCII
-    private static BinaryIn binaryIn;
-    private static BinaryOut binaryOut;
+    private static BinaryIn binIn;
+    private static BinaryOut binOut;
     
     // HuffmanCompression trie node
     private static class Node implements Comparable<Node> {
@@ -48,7 +48,7 @@ public class HuffmanAlgorithm {
     
     public static void compress() {
         // Read the input (1)
-        char[] textInput = binaryIn.readString().toCharArray();
+        char[] textInput = binIn.readString().toCharArray();
 
         // Tabulate frequency counts, build Huffman trie and code table
         // Count character frequency (2)
@@ -66,15 +66,15 @@ public class HuffmanAlgorithm {
         
         // Write the trie (5)
         writeTrie(root);
-        binaryOut.write(textInput.length); // Bytes in original message
+        binOut.write(textInput.length); // Bytes in original message
 
         // Apply Huffman coding (6)
         for (char ch : textInput) {
             for (char e : table[ch].toCharArray()) {
-                binaryOut.write(e == '1');
+                binOut.write(e == '1');
             }
         }
-        binaryOut.close();
+        binOut.close();
     }
     
     public static void decompress() {
@@ -82,17 +82,17 @@ public class HuffmanAlgorithm {
     	// Read the input (1,2)
         Node root = readTrie();
         // Use this trie to decode the bitstream (3)
-        int nBytes = binaryIn.readInt(); // Bytes in original message
+        int nBytes = binIn.readInt(); // Bytes in original message
         int i = 0;
         while (i++ < nBytes) {
             Node node = root;
             while (!node.isLeaf()) {
-                node = binaryIn.readBoolean() ? node.right : node.left;
+                node = binIn.readBoolean() ? node.right : node.left;
             }
             // Output the decompressed characters (4,5)
-            binaryOut.write(node.ch, 8);
+            binOut.write(node.ch, 8);
         }
-        binaryOut.close();
+        binOut.close();
     }
     
     
@@ -134,21 +134,21 @@ public class HuffmanAlgorithm {
     }
     
     private static void writeTrie(Node node) {
-        binaryOut.write(node.isLeaf());
+        binOut.write(node.isLeaf());
         
         if (!node.isLeaf()) {
             writeTrie(node.left);
             writeTrie(node.right);
         } else {
-            binaryOut.write(node.ch, 8);
+            binOut.write(node.ch, 8);
         }
     }
     
     // Read Huffman trie from standard input
     private static Node readTrie() {
-        boolean isLeaf = binaryIn.readBoolean();
+        boolean isLeaf = binIn.readBoolean();
         if (isLeaf) {
-            return new Node(binaryIn.readChar(), -1, null, null);
+            return new Node(binIn.readChar(), -1, null, null);
         } else {
             return new Node('\0', -1, readTrie(), readTrie());
         }
@@ -186,8 +186,8 @@ public class HuffmanAlgorithm {
 			 throw new IllegalArgumentException("Please follow the following syntax: java HuffmanCompression compress filename output filename");
 		 }
 		 else {
-			 binaryIn = new BinaryIn(args[1]); // Input file
-	         binaryOut = new BinaryOut(args[2]); // Output file
+			 binIn = new BinaryIn(args[1]); // Input file
+	         binOut = new BinaryOut(args[2]); // Output file
 	         
 	         // Timing
 	         long t1 = System.currentTimeMillis();
