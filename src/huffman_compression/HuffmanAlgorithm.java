@@ -153,6 +153,27 @@ public class HuffmanAlgorithm {
             return new Node('\0', -1, readTrie(), readTrie());
         }
     }
+    
+
+	private static void summaryStats(String originalFile, String compressedFile) {
+		double originalBits = countBits(originalFile);
+		double compressedBits = countBits(compressedFile);
+		double ratio = (compressedBits / originalBits) * 100;
+		StdOut.printf("\nOriginal bits:\t\t\t%.0f", originalBits);
+		StdOut.printf("\nCompressed bits: \t\t%.0f", compressedBits);
+		StdOut.printf("\nCompression ratio:\t\t%.0f/%.0f = %.2f%%\n", compressedBits, originalBits, ratio);
+	}
+
+
+	private static int countBits(String file) {
+		BinaryIn binaryIn = new BinaryIn(file);
+		int count = 0;
+		while (!binaryIn.isEmpty()) {
+			binaryIn.readBoolean();
+			count++;
+		}
+		return count;
+	}
 	
 	
 
@@ -175,7 +196,7 @@ public class HuffmanAlgorithm {
 				StdOut.printf("\nTime taken for compression:\t%d milliseconds", (System.currentTimeMillis() - t1));
 				StdOut.printf("\nInput file (original):\t\t%s", args[1]);
 				StdOut.printf("\nOutput file (compressed):\t%s", args[2]);
-				printStats(args[1], args[2]);
+				summaryStats(args[1], args[2]);
 			} else {
 				decompress();
 				StdOut.printf("\nTime taken for decompression:\t%d milliseconds", (System.currentTimeMillis() - t1));
