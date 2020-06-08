@@ -153,20 +153,6 @@ public class HuffmanAlgorithm {
             return new Node('\0', -1, readTrie(), readTrie());
         }
     }
-    
-    
-    
-    
- 
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 
@@ -174,7 +160,31 @@ public class HuffmanAlgorithm {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		 if (args.length != 3 && !args[0].equals("compress") && !args[0].equals("decompress")) {
+			 throw new IllegalArgumentException("Please follow the following syntax: java HuffmanCompression compress filename output filename");
+		 }
+		 else {
+			 binaryIn = new BinaryIn(args[1]); // Input file
+	         binaryOut = new BinaryOut(args[2]); // Output file
+	         
+	         // Timing
+	         long t1 = System.currentTimeMillis();
+			if (args[0].equals("compress")) {
+				compress();
+				StdOut.printf("\nTime taken for compression:\t%d milliseconds", (System.currentTimeMillis() - t1));
+				StdOut.printf("\nInput file (original):\t\t%s", args[1]);
+				StdOut.printf("\nOutput file (compressed):\t%s", args[2]);
+				printStats(args[1], args[2]);
+			} else {
+				decompress();
+				StdOut.printf("\nTime taken for decompression:\t%d milliseconds", (System.currentTimeMillis() - t1));
+				StdOut.printf("\nInput file (compressed):\t%s", args[1]);
+				StdOut.printf("\nOutput file (decompressed):\t%s", args[2]);
+				StdOut.printf("\nFinal bits (decompressed):\t%d\n", countBits(args[2]));
+			}
+		 }
+		 
 
 	}
 
