@@ -1,4 +1,4 @@
-package complexity;
+package asymptotic_analysis;
 
 /******************************************************************************
  *  Compilation:  javac ThreeSumB.java
@@ -18,6 +18,8 @@ package complexity;
  ******************************************************************************/
 
 import java.util.Arrays;
+
+import utils.In;
 
 
 public class ThreeSumB {
@@ -65,8 +67,14 @@ public class ThreeSumB {
     public static void main(String[] args)  { 
         In in = new In(args[0]);
         int[] a = in.readAllInts();
+        final long t1 = System.currentTimeMillis();
         int count = count(a);
+        final long t2 = System.currentTimeMillis();
+        long elapsed = (t2 - t1);
         System.out.println("count =" + count);
+        
+        System.out.println("Time taken = " + elapsed + " Milliseconds");
+
     } 
 } 
 

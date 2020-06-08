@@ -1,4 +1,4 @@
-package complexity;
+package utils;
 
 /******************************************************************************
  *  Compilation:  javac In.java
