@@ -1,5 +1,7 @@
 package recurssion;
 
+import utils.StdOut;
+
 public class Fibonacci {
 	/*
 	 * @param n element n of the Fibonacci succession.
@@ -34,5 +36,26 @@ public class Fibonacci {
 		else {
 			return fibonacciRecurssive(n-1) + fibonacciRecurssive(n-2);
 		}
+	}
+	
+	private static void evaluatePerformance(int size) {
+		long startTime, ans, elapsedTimeIterative, elapsedTimeRecursive;
+		StdOut.printf("\n%10s\t%10s\t%20s\t%20s", "Size (n)", "Result", "Time Iterative (ns)", "Time Iterative(ns)\n");
+		System.out.println();
+		for(int n=1; n<=size; n++) {
+			startTime = System.nanoTime();
+            ans = fibonacciIterative(n);
+            elapsedTimeIterative = System.nanoTime() - startTime;
+            
+            startTime = System.nanoTime();
+            ans = fibonacciRecurssive(n);
+            elapsedTimeRecursive = System.nanoTime() - startTime;
+            
+            StdOut.printf("%8d\t%8d\t%8d\t%8d\n", n, ans, elapsedTimeIterative, elapsedTimeRecursive);
+		}
+	}
+	
+	public static void main(String[] args) {
+		evaluatePerformance(30);
 	}
 }
