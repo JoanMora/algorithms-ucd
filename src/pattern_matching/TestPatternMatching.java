@@ -1,4 +1,4 @@
-package substringSorting;
+package pattern_matching;
 
 import static org.junit.jupiter.api.Assertions.*;
 
