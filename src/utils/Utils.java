@@ -27,13 +27,6 @@ public class Utils {
         }
     }
 	
-	public static void main(String[] args) {
-		Integer[] a = {1,2,3,4,5};
-		shuffle(a);
-		
-		printArray(a);
-	}
-	
 	/*
 	 * start < end
 	 */
