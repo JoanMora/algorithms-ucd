@@ -4,7 +4,6 @@
  */
 package algorithm_analysis;
 
-import utils.StdIn;
 import utils.StdOut;
 
 public class RussianPeasant {
@@ -21,7 +20,7 @@ public class RussianPeasant {
 
 
 		private static void evaluatePerformance() {
-	        StdOut.printf("\n%8s\t%8s\t%15s\t\t%8s", "Multiplier", "Multiplicand", "Product", "Time (ns)\n");
+	        StdOut.printf("\n%8s\t%8s\t%15s\t%8s", "Multiplier", "Multiplicand", "Product", "Time (ns)\n");
 	        int i = 2;
 	        while (i < (int) (Math.pow(2, 20))) {
 	            long startTime = System.nanoTime();
