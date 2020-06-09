@@ -73,12 +73,33 @@ public class SortingPerformance {
 		System.out.println();
 	}
 	
-	public static void elementarySortingPerformance() {
+	private static void elementarySortingPerformance() {
 		createSamples();
 		selectionSortPerformance();
 		insertionSortPerformance();
 		sillySortPerformance();
 	}
+	
+	public static void mergeSortPerformance() {
+		System.out.println("\n----MERGE SORT PERFORMANCE EVALUATION----");
+		StdOut.printf("\n%10s\t%20s\n", "Size (n)", "Time (ns)\n");
+		for(Integer[] sample : samples) {
+			long t = performanceEvaluation(() -> AdvancedSorting.mergeSort(sample));
+			StdOut.printf("\n%10s\t%20s", sample.length, t);
+		}
+		System.out.println();
+	}
+	
+	public static void enhancedMergeSortPerformance() {
+		System.out.println("\n----MERGE SORT ENHANCED PERFORMANCE EVALUATION----");
+		StdOut.printf("\n%10s\t%20s\n", "Size (n)", "Time (ns)\n");
+		for(Integer[] sample : samples) {
+			long t = performanceEvaluation(() -> AdvancedSorting.enhancedMergeSort(sample));
+			StdOut.printf("\n%10s\t%20s", sample.length, t);
+		}
+		System.out.println();
+	}
+	
 	
 	
 	/**
@@ -86,7 +107,11 @@ public class SortingPerformance {
 	 */
 	public static void main(String[] args) {
 		
-	elementarySortingPerformance();
+		createSamples();
+		// elementarySortingPerformance();
+		insertionSortPerformance();
+		mergeSortPerformance();
+		enhancedMergeSortPerformance();
 		
 	}
 
