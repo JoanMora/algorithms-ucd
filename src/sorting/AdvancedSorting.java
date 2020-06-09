@@ -49,8 +49,25 @@ public class AdvancedSorting {
 		}
 	}
 	
-	private static void enhancedMergeSort(Integer[] array, int start, int end) {
-		
+	private static void mergeSort(Integer[] array, int start, int end) {
+		// base case
+				if(start >= end) return;
+				
+				// inductive case
+				else {
+				
+					int mid = (start+end) / 2;
+					
+				
+					mergeSort(array, start, mid);
+					mergeSort(array, mid+1, end);
+					
+					// Skip merge if array already ordered
+					if(array[mid] > array[mid+1]) {
+						merge(array, start, end);
+					}
+					
+				}
 	}
 	
 	private static void enhancedMerge(Integer[] array, int start, int end) {
