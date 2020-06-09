@@ -51,7 +51,7 @@ public class Fibonacci {
             ans = fibonacciRecurssive(n);
             elapsedTimeRecursive = System.nanoTime() - startTime;
             
-            StdOut.printf("%8d\t%8d\t%8d\t%8d\n", n, ans, elapsedTimeIterative, elapsedTimeRecursive);
+            StdOut.printf("%10d\t%10d\t%20d\t%20d\n", n, ans, elapsedTimeIterative, elapsedTimeRecursive);
 		}
 	}
 	

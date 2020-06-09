@@ -6,7 +6,7 @@ import utils.Utils;
  * @author joan
  *
  */
-public class AdvSort {
+public class AdvancedSorting {
 	
 	private static int CUTOFF = 10;
 	
@@ -19,10 +19,16 @@ public class AdvSort {
 	}
 	
 	public static void enhancedQuickSort(Integer[] array) {
-		enhancedQuickSort(array,0,array.length-1);
+		if(!Utils.isSorted(array))
+			enhancedQuickSort(array,0,array.length-1);
 	}
 	
-	private static void mergeSort(Integer[] array, int start, int end) {
+	public static void enhancedMergeSort(Integer[] array) {
+		if(!Utils.isSorted(array))
+			enhancedMergeSort(array,0,array.length-1);
+	}
+	
+	private static void enhancedMergeSort(Integer[] array, int start, int end) {
 		// base case
 		if(start >= end) return;
 		
@@ -32,18 +38,39 @@ public class AdvSort {
 			int mid = (start+end) / 2;
 			
 		
-			mergeSort(array, start, mid);
-			mergeSort(array, mid+1, end);
+			enhancedMergeSort(array, start, mid);
+			enhancedMergeSort(array, mid+1, end);
 			
 			// Skip merge if array already ordered
 			if(array[mid] > array[mid+1]) {
-				merge(array, start, end);
+				enhancedMerge(array, start, end);
 			}
 			
 		}
 	}
 	
-	private static void merge(Integer[] array, int start, int end) {
+	private static void mergeSort(Integer[] array, int start, int end) {
+		// base case
+				if(start >= end) return;
+				
+				// inductive case
+				else {
+				
+					int mid = (start+end) / 2;
+					
+				
+					mergeSort(array, start, mid);
+					mergeSort(array, mid+1, end);
+					
+					// Skip merge if array already ordered
+					if(array[mid] > array[mid+1]) {
+						merge(array, start, end);
+					}
+					
+				}
+	}
+	
+	private static void enhancedMerge(Integer[] array, int start, int end) {
 		
 		// Avoid overhead when merging small arrays improvement 
 		if(end <= start+CUTOFF) {
@@ -85,6 +112,49 @@ public class AdvSort {
 			}
 			
 		}
+	}
+	
+	private static void merge(Integer[] array, int start, int end)  {
+		
+				if(end <= start) {
+					return;
+				}
+				else {
+					int mid = (start+end) / 2;
+					Integer[] left = Arrays.copyOfRange(array,start,mid+1);
+					Integer[] right = Arrays.copyOfRange(array,mid+1,end+1);
+
+					
+					int i=0, j=0, k=start;
+					
+					// j is the right counter
+					// i is the left counter
+					while( j<right.length && i<left.length) {
+						if(left[i] <= right[j]) {
+							array[k] = left[i];
+							i++;
+						}
+						else {
+							array[k] = right[j];
+							j++;
+						}
+						k++;
+					}
+					
+			
+					// copy the left side
+					while(i<left.length) {
+						array[k] = left[i];
+						k++; i++;
+					}
+					
+					// copy the right side
+					while(j<right.length) {
+						array[k] = right[j];
+						k++; j++;
+					}
+					
+				}
 	}
 	
 	private static void quickSort(Integer[] array, int start, int end) {
@@ -150,10 +220,6 @@ public class AdvSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Integer[] array = {99,1,0,5,5,6,98,54,2,7,104};
-		AdvSort.enhancedQuickSort(array);
-		Utils.printArray(array);
 	}
 
 }
