@@ -73,6 +73,7 @@ public class SortingPerformance {
 		System.out.println();
 	}
 	
+	@SuppressWarnings("unused")
 	private static void elementarySortingPerformance() {
 		createSamples();
 		selectionSortPerformance();
