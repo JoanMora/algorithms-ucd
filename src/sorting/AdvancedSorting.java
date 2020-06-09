@@ -220,10 +220,6 @@ public class AdvancedSorting {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Integer[] array = {99,1,0,5,5,6,98,54,2,7,104};
-		AdvancedSorting.enhancedQuickSort(array);
-		Utils.printArray(array);
 	}
 
 }
