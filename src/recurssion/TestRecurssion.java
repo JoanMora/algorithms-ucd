@@ -15,18 +15,18 @@ class TestRecurssion {
 
 	@Test
 	void fibonacciRecurssive() {
-		int n = 10;
+		int n = 30;
 		int res = Fibonacci.fibonacciRecurssive(n);
 		
-		assertEquals(res,55);
+		assertEquals(res,832040);
 	}
 	
 	@Test
 	void fibonacciIterative() {
-		int n = 10;
+		int n = 30;
 		int res = Fibonacci.fibonacciIterative(n);
 		
-		assertEquals(res,55);
+		assertEquals(res,832040);
 	}
 
 }
