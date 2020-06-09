@@ -101,7 +101,26 @@ public class SortingPerformance {
 		System.out.println();
 	}
 	
+	public static void enhancedQuickSortPerformance() {
+		System.out.println("\n----QUICK SORT ENHANCED PERFORMANCE EVALUATION----");
+		StdOut.printf("\n%10s\t%20s\n", "Size (n)", "Time (ns)\n");
+		for(Integer[] sample : samples) {
+			long t = performanceEvaluation(() -> AdvancedSorting.enhancedQuickSort(sample));
+			StdOut.printf("\n%10s\t%20s", sample.length, t);
+		}
+		System.out.println();
+	}
 	
+	
+	public static void quickSortPerformance() {
+		System.out.println("\n----QUICK SORT PERFORMANCE EVALUATION----");
+		StdOut.printf("\n%10s\t%20s\n", "Size (n)", "Time (ns)\n");
+		for(Integer[] sample : samples) {
+			long t = performanceEvaluation(() -> AdvancedSorting.quickSort(sample));
+			StdOut.printf("\n%10s\t%20s", sample.length, t);
+		}
+		System.out.println();
+	}
 	
 	/**
 	 * @param args
@@ -109,11 +128,12 @@ public class SortingPerformance {
 	public static void main(String[] args) {
 		
 		createSamples();
-		// elementarySortingPerformance();
-		insertionSortPerformance();
+		//elementarySortingPerformance();
+		//insertionSortPerformance();
 		mergeSortPerformance();
-		enhancedMergeSortPerformance();
-		
+		//enhancedMergeSortPerformance();
+		quickSortPerformance();
+		enhancedQuickSortPerformance();
 	}
 
 }
