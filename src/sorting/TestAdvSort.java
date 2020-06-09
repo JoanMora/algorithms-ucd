@@ -11,7 +11,7 @@ class TestAdvSort {
 	void testMergeSort() {
 		Integer[] array = {99,1,0,5,5,6,98,54,2,7,104};
 		
-		AdvSort.mergeSort(array);
+		AdvancedSorting.mergeSort(array);
 		
 		assertTrue(Utils.isSorted(array));
 	}
@@ -20,7 +20,7 @@ class TestAdvSort {
 	void testQuickSort() {
 		Integer[] array = {99,1,0,5,5,6,98,54,2,7,104};
 		
-		AdvSort.quickSort(array);
+		AdvancedSorting.quickSort(array);
 		
 		assertTrue(Utils.isSorted(array));
 	}
@@ -29,7 +29,7 @@ class TestAdvSort {
 	void testenhancedQuickSort() {
 		Integer[] array = {99,1,0,5,5,6,98,54,2,7,104};
 		
-		AdvSort.enhancedQuickSort(array);
+		AdvancedSorting.enhancedQuickSort(array);
 		
 		assertTrue(Utils.isSorted(array));
 	}

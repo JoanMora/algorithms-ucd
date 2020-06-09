@@ -6,7 +6,7 @@ import utils.Utils;
  * @author joan
  *
  */
-public class AdvSort {
+public class AdvancedSorting {
 	
 	private static int CUTOFF = 10;
 	
@@ -152,7 +152,7 @@ public class AdvSort {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Integer[] array = {99,1,0,5,5,6,98,54,2,7,104};
-		AdvSort.enhancedQuickSort(array);
+		AdvancedSorting.enhancedQuickSort(array);
 		Utils.printArray(array);
 	}
 
