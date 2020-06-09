@@ -17,7 +17,7 @@ public class SortingPerformance {
 	
 	private static ArrayList<Integer[]> samples = new ArrayList<Integer[]>();
 	
-	private static final int MAX_SIZE = 32768; // 2^15, 15 samples for the experiment
+	private static final int MAX_SIZE = 16384; // 2^15, 15 samples for the experiment
 	
 	public static void createSamples() {
 		for(int n=4; n<=MAX_SIZE; n*=2 ) {
@@ -128,10 +128,10 @@ public class SortingPerformance {
 	public static void main(String[] args) {
 		
 		createSamples();
-		//elementarySortingPerformance();
-		//insertionSortPerformance();
+		elementarySortingPerformance();
+		insertionSortPerformance();
 		mergeSortPerformance();
-		//enhancedMergeSortPerformance();
+		enhancedMergeSortPerformance();
 		quickSortPerformance();
 		enhancedQuickSortPerformance();
 	}
