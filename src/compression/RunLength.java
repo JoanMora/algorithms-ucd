@@ -1,4 +1,4 @@
-package huffman_compression;
+package compression;
 
 import utils.*;
 
