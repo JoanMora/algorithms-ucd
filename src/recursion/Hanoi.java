@@ -1,7 +1,7 @@
 /**
  * 
  */
-package recurssion;
+package recursion;
 
 /**
  * @author joan

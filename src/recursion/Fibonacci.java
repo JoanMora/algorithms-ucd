@@ -1,4 +1,4 @@
-package recurssion;
+package recursion;
 
 import utils.StdOut;
 
