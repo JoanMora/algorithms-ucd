@@ -15,7 +15,7 @@ import java.util.StringTokenizer;
  */
 public class MyRunLength {
 	
-	public static void compress(String input) {
+	public static String compress(String input) {
 		String res = "";
 		int j = 0;
 		
@@ -34,14 +34,10 @@ public class MyRunLength {
 				c = next_c;
 			}
 		}
-		System.out.println(res);
+		return res;
 	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
+	
+	public static void compressFromStdIn() {
 		List<String> tokens = new ArrayList<>();
 		BufferedReader br = null;
 
@@ -53,12 +49,20 @@ public class MyRunLength {
 				tokens.add(st.nextToken());
 			}
 
-			// System.out.println(tokens);
-			compress(tokens.toArray(new String[0])[0]);
+			String compressed = compress(tokens.toArray(new String[0])[0]);
+			System.out.println(compressed);
 		}
 		catch (IOException e) {
 			System.out.println(e);
 		}
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		compressFromStdIn();
 		
 
 	}
